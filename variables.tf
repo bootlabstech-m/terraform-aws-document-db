@@ -3,20 +3,20 @@ variable "region" {
   description = "AWS Region"
 }
 
-variable "subnet_group_name" {
-  type        = string
-  description = "The name of the docDB subnet group"
-}
+# variable "subnet_group_name" {
+#   type        = string
+#   description = "The name of the docDB subnet group"
+# }
 
-variable "description" {
-  type        = string
-  description = "The description of the docDB subnet group. Defaults to Managed by Terraform ."
-}
+# variable "description" {
+#   type        = string
+#   description = "The description of the docDB subnet group. Defaults to Managed by Terraform ."
+# }
 
-variable "subnet_ids" {
-  type        = list(string)
-  description = "A list of VPC subnet IDs."
-}
+# variable "subnet_ids" {
+#   type        = list(string)
+#   description = "A list of VPC subnet IDs."
+# }
 
 variable "parameter_group_name" {
   type        = string
