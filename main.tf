@@ -1,8 +1,8 @@
-resource "aws_docdb_subnet_group" "docdb_subnet_group" {
-  name       = var.subnet_group_name
-  description = var.description
-  subnet_ids = var.subnet_ids
-}
+# resource "aws_docdb_subnet_group" "docdb_subnet_group" {
+#   name        = var.subnet_group_name
+#   description = var.description
+#   subnet_ids  = var.subnet_ids
+# }
 
 resource "aws_docdb_cluster_parameter_group" "docdb_parameter_group" {
   name        = var.parameter_group_name
@@ -11,21 +11,21 @@ resource "aws_docdb_cluster_parameter_group" "docdb_parameter_group" {
 }
 
 resource "aws_docdb_cluster" "docdb" {
-  cluster_identifier      = var.cluster_name
-  engine                  = "docdb"
-  engine_version          = var.docdb_version
-  master_username         = var.username
-  master_password         = var.password
-  backup_retention_period = var.backup_retention_period
-  preferred_backup_window = var.backup_window
-  skip_final_snapshot     = var.skip_final_snapshot
-  db_subnet_group_name    = aws_docdb_subnet_group.docdb_subnet_group.id
-  vpc_security_group_ids  = var.vpc_security_group_ids
-  port                    = var.cluster_port
+  cluster_identifier              = var.cluster_name
+  engine                          = "docdb"
+  engine_version                  = var.docdb_version
+  master_username                 = var.username
+  master_password                 = var.password
+  backup_retention_period         = var.backup_retention_period
+  preferred_backup_window         = var.backup_window
+  skip_final_snapshot             = var.skip_final_snapshot
+  db_subnet_group_name            = var.db_subnet_group_name
+  vpc_security_group_ids          = var.vpc_security_group_ids
+  port                            = var.cluster_port
   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.docdb_parameter_group.id
-  storage_encrypted       = var.storage_encrypted
-  preferred_maintenance_window = var.maintenance_window
-  deletion_protection     = var.deletion_protection
+  storage_encrypted               = var.storage_encrypted
+  preferred_maintenance_window    = var.maintenance_window
+  deletion_protection             = var.deletion_protection
 }
 
 
