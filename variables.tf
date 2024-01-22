@@ -2,21 +2,10 @@ variable "region" {
   type        = string
   description = "AWS Region"
 }
-
-# variable "subnet_group_name" {
-#   type        = string
-#   description = "The name of the docDB subnet group"
-# }
-
-# variable "description" {
-#   type        = string
-#   description = "The description of the docDB subnet group. Defaults to Managed by Terraform ."
-# }
-
-# variable "subnet_ids" {
-#   type        = list(string)
-#   description = "A list of VPC subnet IDs."
-# }
+variable "subnet_ids" {
+  type        = list(string)
+  description = "A list of VPC subnet IDs."
+}
 
 variable "parameter_group_name" {
   type        = string
@@ -95,7 +84,7 @@ variable "maintenance_window" {
 variable "deletion_protection" {
   type        = string
   description = "A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. "
-  default     = "true"
+  default     = "false"
 }
 
 variable "no_of_instances" {
@@ -116,8 +105,4 @@ variable "instance_class" {
 variable "role_arn" {
   type        = string
   description = "Role ARN"
-}
-variable "db_subnet_group_name" {
-  type        = string
-  description = "db_subnet_group_name"
 }

@@ -1,8 +1,7 @@
-# resource "aws_docdb_subnet_group" "docdb_subnet_group" {
-#   name        = var.subnet_group_name
-#   description = var.description
-#   subnet_ids  = var.subnet_ids
-# }
+resource "aws_docdb_subnet_group" "docdb_subnet_group" {
+  name        = "${var.cluster_name}-subnet-group"
+  subnet_ids  = var.subnet_ids
+}
 
 resource "aws_docdb_cluster_parameter_group" "docdb_parameter_group" {
   name        = var.parameter_group_name
@@ -19,7 +18,7 @@ resource "aws_docdb_cluster" "docdb" {
   backup_retention_period         = var.backup_retention_period
   preferred_backup_window         = var.backup_window
   skip_final_snapshot             = var.skip_final_snapshot
-  db_subnet_group_name            = var.db_subnet_group_name
+  db_subnet_group_name            = aws_docdb_subnet_group.docdb_subnet_group.id
   vpc_security_group_ids          = var.vpc_security_group_ids
   port                            = var.cluster_port
   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.docdb_parameter_group.id
