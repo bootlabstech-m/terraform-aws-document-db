@@ -16,12 +16,6 @@ variable "family_version" {
   type        = string
   description = "The family of the DocumentDB cluster parameter group."
 }
-
-variable "parameter_description" {
-  type        = string
-  description = "The description of the DocumentDB cluster parameter group"
-}
-
 variable "cluster_name" {
   type        = string
   description = "The cluster Name"

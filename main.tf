@@ -6,7 +6,6 @@ resource "aws_docdb_subnet_group" "docdb_subnet_group" {
 resource "aws_docdb_cluster_parameter_group" "docdb_parameter_group" {
   name        = var.parameter_group_name
   family      = var.family_version
-  description = var.parameter_description
 }
 
 resource "aws_docdb_cluster" "docdb" {
